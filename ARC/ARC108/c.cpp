@@ -17,27 +17,22 @@ const double PI = acos(-1);
 
 int main()
 {
-    ll n, m;
-    cin >> n >> m;
-
-    vector<ll> a(n);
-    rep(i, n) cin >> a[i];
-
-    priority_queue<ll> pq;
-    rep(i, n) pq.push(a[i]);
-    rep(i, m)
+    string s;
+    cin >> s;
+    rep(i, s.size())
     {
-        ll a = pq.top();
-        pq.pop();
-        a /= 2;
-        pq.push(a);
+        if (s[i] == ' ')
+        {
+            if (s[i + 1] != ' ')
+            {
+                cout << ',';
+            }
+        }
+        else
+        {
+            cout << s[i];
+        }
     }
-    ll ans = 0;
-    rep(i, n)
-    {
-        int a = pq.top();
-        pq.pop();
-        ans += a;
-    }
-    cout << ans << endl;
+    cout << endl;
+    return 0;
 }
